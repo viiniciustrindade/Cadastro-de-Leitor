@@ -1,0 +1,11 @@
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\bin\Debug\Cadastro de Leitor.exe.config
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\bin\Debug\Cadastro de Leitor.exe
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\bin\Debug\Cadastro de Leitor.pdb
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\obj\Debug\Cadastro de Leitor.csproj.AssemblyReference.cache
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\obj\Debug\Cadastro de Leitor.csproj.SuggestedBindingRedirects.cache
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\obj\Debug\Cadastro_de_Leitor.Form1.resources
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\obj\Debug\Cadastro_de_Leitor.Properties.Resources.resources
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\obj\Debug\Cadastro de Leitor.csproj.GenerateResource.cache
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\obj\Debug\Cadastro de Leitor.csproj.CoreCompileInputs.cache
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\obj\Debug\Cadastro de Leitor.exe
+C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\Cadastro de Leitor\Cadastro de Leitor\obj\Debug\Cadastro de Leitor.pdb
