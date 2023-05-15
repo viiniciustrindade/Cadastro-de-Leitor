@@ -57,22 +57,25 @@
             this.txtCelular = new System.Windows.Forms.MaskedTextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtRua = new System.Windows.Forms.TextBox();
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.txtCidade = new System.Windows.Forms.TextBox();
-            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Estado = new System.Windows.Forms.Label();
             this.txtCep = new System.Windows.Forms.MaskedTextBox();
             this.txtEstado = new System.Windows.Forms.ComboBox();
-            this.Estado = new System.Windows.Forms.Label();
-            this.dadosGrid = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.txtCidade = new System.Windows.Forms.TextBox();
+            this.txtRua = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
+            this.dadosGrid = new System.Windows.Forms.DataGridView();
+            this.colcodigoAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colnomeDoAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coldecricaoAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
@@ -359,6 +362,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados pessoais";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(766, 85);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(12, 16);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "*";
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -386,40 +399,58 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Endereço";
             // 
-            // txtRua
+            // label21
             // 
-            this.txtRua.BackColor = System.Drawing.SystemColors.Info;
-            this.txtRua.Location = new System.Drawing.Point(63, 24);
-            this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(298, 22);
-            this.txtRua.TabIndex = 16;
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(367, 52);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(12, 16);
+            this.label21.TabIndex = 38;
+            this.label21.Text = "*";
             // 
-            // txtBairro
+            // label20
             // 
-            this.txtBairro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(795, 23);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(12, 16);
+            this.label20.TabIndex = 37;
+            this.label20.Text = "*";
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(795, 51);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(12, 16);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(367, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(12, 16);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "*";
+            // 
+            // Estado
+            // 
+            this.Estado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBairro.BackColor = System.Drawing.SystemColors.Info;
-            this.txtBairro.Location = new System.Drawing.Point(436, 23);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(353, 22);
-            this.txtBairro.TabIndex = 31;
-            // 
-            // txtCidade
-            // 
-            this.txtCidade.BackColor = System.Drawing.SystemColors.Info;
-            this.txtCidade.Location = new System.Drawing.Point(63, 53);
-            this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(298, 22);
-            this.txtCidade.TabIndex = 32;
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtNumero.BackColor = System.Drawing.SystemColors.Info;
-            this.txtNumero.Location = new System.Drawing.Point(884, 52);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(73, 22);
-            this.txtNumero.TabIndex = 32;
+            this.Estado.AutoSize = true;
+            this.Estado.Location = new System.Drawing.Point(380, 54);
+            this.Estado.Name = "Estado";
+            this.Estado.Size = new System.Drawing.Size(50, 16);
+            this.Estado.TabIndex = 35;
+            this.Estado.Text = "Estado";
             // 
             // txtCep
             // 
@@ -470,71 +501,40 @@
             this.txtEstado.Size = new System.Drawing.Size(353, 24);
             this.txtEstado.TabIndex = 34;
             // 
-            // Estado
+            // txtNumero
             // 
-            this.Estado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNumero.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtNumero.BackColor = System.Drawing.SystemColors.Info;
+            this.txtNumero.Location = new System.Drawing.Point(884, 52);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(73, 22);
+            this.txtNumero.TabIndex = 32;
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Estado.AutoSize = true;
-            this.Estado.Location = new System.Drawing.Point(380, 54);
-            this.Estado.Name = "Estado";
-            this.Estado.Size = new System.Drawing.Size(50, 16);
-            this.Estado.TabIndex = 35;
-            this.Estado.Text = "Estado";
+            this.txtBairro.BackColor = System.Drawing.SystemColors.Info;
+            this.txtBairro.Location = new System.Drawing.Point(436, 23);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(353, 22);
+            this.txtBairro.TabIndex = 31;
             // 
-            // dadosGrid
+            // txtCidade
             // 
-            this.dadosGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dadosGrid.Location = new System.Drawing.Point(12, 287);
-            this.dadosGrid.Name = "dadosGrid";
-            this.dadosGrid.RowHeadersWidth = 51;
-            this.dadosGrid.RowTemplate.Height = 24;
-            this.dadosGrid.Size = new System.Drawing.Size(982, 257);
-            this.dadosGrid.TabIndex = 31;
+            this.txtCidade.BackColor = System.Drawing.SystemColors.Info;
+            this.txtCidade.Location = new System.Drawing.Point(63, 53);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.Size = new System.Drawing.Size(298, 22);
+            this.txtCidade.TabIndex = 32;
             // 
-            // label9
+            // txtRua
             // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(367, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(12, 16);
-            this.label9.TabIndex = 29;
-            this.label9.Text = "*";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(795, 51);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(12, 16);
-            this.label19.TabIndex = 36;
-            this.label19.Text = "*";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(795, 23);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(12, 16);
-            this.label20.TabIndex = 37;
-            this.label20.Text = "*";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(367, 52);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(12, 16);
-            this.label21.TabIndex = 38;
-            this.label21.Text = "*";
+            this.txtRua.BackColor = System.Drawing.SystemColors.Info;
+            this.txtRua.Location = new System.Drawing.Point(63, 24);
+            this.txtRua.Name = "txtRua";
+            this.txtRua.Size = new System.Drawing.Size(298, 22);
+            this.txtRua.TabIndex = 16;
             // 
             // btnSalvar
             // 
@@ -562,15 +562,53 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             // 
-            // label15
+            // dadosGrid
             // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(766, 85);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(12, 16);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "*";
+            this.dadosGrid.AllowUserToAddRows = false;
+            this.dadosGrid.AllowUserToDeleteRows = false;
+            this.dadosGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dadosGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dadosGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dadosGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colcodigoAutor,
+            this.colnomeDoAutor,
+            this.coldecricaoAutor});
+            this.dadosGrid.Location = new System.Drawing.Point(12, 287);
+            this.dadosGrid.Name = "dadosGrid";
+            this.dadosGrid.ReadOnly = true;
+            this.dadosGrid.RowHeadersWidth = 51;
+            this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dadosGrid.Size = new System.Drawing.Size(980, 257);
+            this.dadosGrid.TabIndex = 34;
+            // 
+            // colcodigoAutor
+            // 
+            this.colcodigoAutor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colcodigoAutor.FillWeight = 152.2843F;
+            this.colcodigoAutor.HeaderText = "Codigo";
+            this.colcodigoAutor.MinimumWidth = 6;
+            this.colcodigoAutor.Name = "colcodigoAutor";
+            this.colcodigoAutor.ReadOnly = true;
+            this.colcodigoAutor.Width = 80;
+            // 
+            // colnomeDoAutor
+            // 
+            this.colnomeDoAutor.FillWeight = 73.85786F;
+            this.colnomeDoAutor.HeaderText = "Nome do Autor";
+            this.colnomeDoAutor.MinimumWidth = 6;
+            this.colnomeDoAutor.Name = "colnomeDoAutor";
+            this.colnomeDoAutor.ReadOnly = true;
+            // 
+            // coldecricaoAutor
+            // 
+            this.coldecricaoAutor.FillWeight = 73.85786F;
+            this.coldecricaoAutor.HeaderText = "Descrição do Autor";
+            this.coldecricaoAutor.MinimumWidth = 6;
+            this.coldecricaoAutor.Name = "coldecricaoAutor";
+            this.coldecricaoAutor.ReadOnly = true;
             // 
             // Form1
             // 
@@ -578,9 +616,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1004, 556);
+            this.Controls.Add(this.dadosGrid);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.dadosGrid);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -633,7 +671,6 @@
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.TextBox txtRua;
-        private System.Windows.Forms.DataGridView dadosGrid;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -641,6 +678,10 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridView dadosGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colcodigoAutor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colnomeDoAutor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coldecricaoAutor;
     }
 }
 
