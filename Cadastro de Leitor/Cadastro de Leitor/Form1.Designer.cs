@@ -51,11 +51,11 @@
             this.txtDataNasc = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtRg = new System.Windows.Forms.MaskedTextBox();
-            this.txEmail = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtCelular = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtsexoLeitor = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -65,7 +65,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.Estado = new System.Windows.Forms.Label();
             this.txtCep = new System.Windows.Forms.MaskedTextBox();
-            this.txtEstado = new System.Windows.Forms.ComboBox();
+            this.txtUf = new System.Windows.Forms.ComboBox();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -73,9 +73,22 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
-            this.colcodigoAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colnomeDoAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coldecricaoAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodigoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNomeDoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSexoDoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
@@ -95,7 +108,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(169, 33);
+            this.label2.Location = new System.Drawing.Point(180, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 1;
@@ -115,7 +128,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(169, 62);
+            this.label4.Location = new System.Drawing.Point(180, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 16);
             this.label4.TabIndex = 3;
@@ -124,7 +137,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(797, 89);
+            this.label5.Location = new System.Drawing.Point(825, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 16);
             this.label5.TabIndex = 4;
@@ -162,7 +175,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(380, 27);
+            this.label10.Location = new System.Drawing.Point(547, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 16);
             this.label10.TabIndex = 9;
@@ -179,6 +192,7 @@
             // 
             // label12
             // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(6, 55);
             this.label12.Name = "label12";
@@ -188,9 +202,9 @@
             // 
             // label13
             // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(823, 55);
+            this.label13.Location = new System.Drawing.Point(696, 59);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(55, 16);
             this.label13.TabIndex = 12;
@@ -198,9 +212,9 @@
             // 
             // label14
             // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(823, 27);
+            this.label14.Location = new System.Drawing.Point(836, 59);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(32, 16);
             this.label14.TabIndex = 13;
@@ -208,6 +222,7 @@
             // 
             // txtCodLeitor
             // 
+            this.txtCodLeitor.Enabled = false;
             this.txtCodLeitor.Location = new System.Drawing.Point(68, 30);
             this.txtCodLeitor.Name = "txtCodLeitor";
             this.txtCodLeitor.Size = new System.Drawing.Size(95, 22);
@@ -218,10 +233,10 @@
             this.txtNomeLeitor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNomeLeitor.BackColor = System.Drawing.SystemColors.Info;
-            this.txtNomeLeitor.Location = new System.Drawing.Point(222, 30);
+            this.txtNomeLeitor.Location = new System.Drawing.Point(231, 30);
             this.txtNomeLeitor.Name = "txtNomeLeitor";
-            this.txtNomeLeitor.Size = new System.Drawing.Size(740, 22);
-            this.txtNomeLeitor.TabIndex = 15;
+            this.txtNomeLeitor.Size = new System.Drawing.Size(731, 22);
+            this.txtNomeLeitor.TabIndex = 1;
             // 
             // label16
             // 
@@ -256,8 +271,8 @@
             this.txtDataNasc.Location = new System.Drawing.Point(670, 85);
             this.txtDataNasc.Mask = "00/00/0000";
             this.txtDataNasc.Name = "txtDataNasc";
-            this.txtDataNasc.Size = new System.Drawing.Size(90, 22);
-            this.txtDataNasc.TabIndex = 21;
+            this.txtDataNasc.Size = new System.Drawing.Size(121, 22);
+            this.txtDataNasc.TabIndex = 7;
             this.txtDataNasc.ValidatingType = typeof(System.DateTime);
             this.txtDataNasc.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDataNasc_MaskInputRejected);
             // 
@@ -268,7 +283,7 @@
             this.txtCpf.Mask = "000.000.000-00";
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(95, 22);
-            this.txtCpf.TabIndex = 22;
+            this.txtCpf.TabIndex = 2;
             // 
             // txtRg
             // 
@@ -277,17 +292,17 @@
             this.txtRg.Mask = "00.000.000-0";
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(95, 22);
-            this.txtRg.TabIndex = 23;
+            this.txtRg.TabIndex = 4;
             // 
-            // txEmail
+            // txtEmail
             // 
-            this.txEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txEmail.BackColor = System.Drawing.SystemColors.Info;
-            this.txEmail.Location = new System.Drawing.Point(222, 58);
-            this.txEmail.Name = "txEmail";
-            this.txEmail.Size = new System.Drawing.Size(740, 22);
-            this.txEmail.TabIndex = 24;
+            this.txtEmail.BackColor = System.Drawing.SystemColors.Info;
+            this.txtEmail.Location = new System.Drawing.Point(231, 58);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(731, 22);
+            this.txtEmail.TabIndex = 3;
             // 
             // txtTelefone
             // 
@@ -296,48 +311,47 @@
             this.txtTelefone.Mask = "(00) 00000 - 0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(111, 22);
-            this.txtTelefone.TabIndex = 25;
+            this.txtTelefone.TabIndex = 6;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(167, 87);
+            this.label18.Location = new System.Drawing.Point(176, 88);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(49, 16);
             this.label18.TabIndex = 26;
             this.label18.Text = "Celular";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // txtCelular
             // 
             this.txtCelular.BackColor = System.Drawing.SystemColors.Info;
-            this.txtCelular.Location = new System.Drawing.Point(222, 85);
+            this.txtCelular.Location = new System.Drawing.Point(231, 85);
             this.txtCelular.Mask = "(00) 00000 - 0000";
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(119, 22);
-            this.txtCelular.TabIndex = 27;
+            this.txtCelular.Size = new System.Drawing.Size(110, 22);
+            this.txtCelular.TabIndex = 5;
             // 
-            // comboBox1
+            // txtsexoLeitor
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Masculino",
-            "Feminino",
-            "Outros"});
-            this.comboBox1.Location = new System.Drawing.Point(841, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 28;
+            this.txtsexoLeitor.BackColor = System.Drawing.SystemColors.Window;
+            this.txtsexoLeitor.FormattingEnabled = true;
+            this.txtsexoLeitor.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.txtsexoLeitor.Location = new System.Drawing.Point(878, 85);
+            this.txtsexoLeitor.Name = "txtsexoLeitor";
+            this.txtsexoLeitor.Size = new System.Drawing.Size(84, 24);
+            this.txtsexoLeitor.TabIndex = 8;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtNomeLeitor);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.txtsexoLeitor);
             this.groupBox1.Controls.Add(this.txtCelular);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.txtDataNasc);
@@ -346,7 +360,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtTelefone);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txEmail);
+            this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtRg);
             this.groupBox1.Controls.Add(this.label7);
@@ -366,7 +380,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(766, 85);
+            this.label15.Location = new System.Drawing.Point(797, 83);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(12, 16);
             this.label15.TabIndex = 29;
@@ -382,7 +396,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.Estado);
             this.groupBox2.Controls.Add(this.txtCep);
-            this.groupBox2.Controls.Add(this.txtEstado);
+            this.groupBox2.Controls.Add(this.txtUf);
             this.groupBox2.Controls.Add(this.txtNumero);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtBairro);
@@ -401,9 +415,10 @@
             // 
             // label21
             // 
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label21.AutoSize = true;
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(367, 52);
+            this.label21.Location = new System.Drawing.Point(517, 53);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(12, 16);
             this.label21.TabIndex = 38;
@@ -414,7 +429,7 @@
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(795, 23);
+            this.label20.Location = new System.Drawing.Point(964, 24);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(12, 16);
             this.label20.TabIndex = 37;
@@ -422,10 +437,10 @@
             // 
             // label19
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label19.AutoSize = true;
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(795, 51);
+            this.label19.Location = new System.Drawing.Point(678, 54);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(12, 16);
             this.label19.TabIndex = 36;
@@ -435,7 +450,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(367, 24);
+            this.label9.Location = new System.Drawing.Point(517, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(12, 16);
             this.label9.TabIndex = 29;
@@ -443,98 +458,97 @@
             // 
             // Estado
             // 
-            this.Estado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Estado.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Estado.AutoSize = true;
-            this.Estado.Location = new System.Drawing.Point(380, 54);
+            this.Estado.Location = new System.Drawing.Point(547, 59);
             this.Estado.Name = "Estado";
-            this.Estado.Size = new System.Drawing.Size(50, 16);
+            this.Estado.Size = new System.Drawing.Size(25, 16);
             this.Estado.TabIndex = 35;
-            this.Estado.Text = "Estado";
+            this.Estado.Text = "UF";
             // 
             // txtCep
             // 
-            this.txtCep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCep.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtCep.BackColor = System.Drawing.SystemColors.Info;
-            this.txtCep.Location = new System.Drawing.Point(884, 24);
+            this.txtCep.Location = new System.Drawing.Point(887, 54);
             this.txtCep.Mask = "00.000-000";
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(73, 22);
-            this.txtCep.TabIndex = 33;
+            this.txtCep.TabIndex = 14;
             // 
-            // txtEstado
+            // txtUf
             // 
-            this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEstado.BackColor = System.Drawing.SystemColors.Window;
-            this.txtEstado.FormattingEnabled = true;
-            this.txtEstado.Items.AddRange(new object[] {
-            "Acre",
-            "Alagoas",
-            "Amapá",
-            "Amazonas",
-            "Bahia",
-            "Ceará",
-            "Distrito Federal",
-            "Espírito Santo",
-            "Goiás",
-            "Maranhão",
-            "Mato Grosso",
-            "Mato Grosso do Sul",
-            "Minas Gerais",
-            "Pará",
-            "Paraíba",
-            "Paraná",
-            "Pernambuco",
-            "Piauí",
-            "Rio de Janeiro",
-            "Rio Grande do Norte",
-            "Rio Grande do Sul",
-            "Rondônia",
-            "Roraima",
-            "Santa Catarina",
-            "São Paulo",
-            "Sergipe",
-            "Tocantins"});
-            this.txtEstado.Location = new System.Drawing.Point(436, 51);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(353, 24);
-            this.txtEstado.TabIndex = 34;
+            this.txtUf.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtUf.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUf.FormattingEnabled = true;
+            this.txtUf.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
+            this.txtUf.Location = new System.Drawing.Point(603, 54);
+            this.txtUf.Name = "txtUf";
+            this.txtUf.Size = new System.Drawing.Size(69, 24);
+            this.txtUf.TabIndex = 12;
             // 
             // txtNumero
             // 
-            this.txtNumero.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtNumero.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtNumero.BackColor = System.Drawing.SystemColors.Info;
-            this.txtNumero.Location = new System.Drawing.Point(884, 52);
+            this.txtNumero.Location = new System.Drawing.Point(757, 56);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(73, 22);
-            this.txtNumero.TabIndex = 32;
+            this.txtNumero.TabIndex = 13;
             // 
             // txtBairro
             // 
             this.txtBairro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBairro.BackColor = System.Drawing.SystemColors.Info;
-            this.txtBairro.Location = new System.Drawing.Point(436, 23);
+            this.txtBairro.Location = new System.Drawing.Point(603, 23);
             this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(353, 22);
-            this.txtBairro.TabIndex = 31;
+            this.txtBairro.Size = new System.Drawing.Size(357, 22);
+            this.txtBairro.TabIndex = 10;
             // 
             // txtCidade
             // 
+            this.txtCidade.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtCidade.BackColor = System.Drawing.SystemColors.Info;
             this.txtCidade.Location = new System.Drawing.Point(63, 53);
             this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(298, 22);
-            this.txtCidade.TabIndex = 32;
+            this.txtCidade.Size = new System.Drawing.Size(448, 22);
+            this.txtCidade.TabIndex = 11;
             // 
             // txtRua
             // 
             this.txtRua.BackColor = System.Drawing.SystemColors.Info;
             this.txtRua.Location = new System.Drawing.Point(63, 24);
             this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(298, 22);
-            this.txtRua.TabIndex = 16;
+            this.txtRua.Size = new System.Drawing.Size(448, 22);
+            this.txtRua.TabIndex = 9;
             // 
             // btnSalvar
             // 
@@ -545,9 +559,10 @@
             this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(113, 27);
-            this.btnSalvar.TabIndex = 32;
+            this.btnSalvar.TabIndex = 15;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 
@@ -558,9 +573,10 @@
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(113, 27);
-            this.btnExcluir.TabIndex = 33;
+            this.btnExcluir.TabIndex = 16;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // dadosGrid
             // 
@@ -573,42 +589,161 @@
             this.dadosGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dadosGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colcodigoAutor,
-            this.colnomeDoAutor,
-            this.coldecricaoAutor});
+            this.colCodigoLeitor,
+            this.colNomeDoLeitor,
+            this.colCpf,
+            this.colEmail,
+            this.colRG,
+            this.colCelular,
+            this.colTelefone,
+            this.colRua,
+            this.colCidade,
+            this.colBairro,
+            this.colUf,
+            this.colNumero,
+            this.colCep,
+            this.colDataNasc,
+            this.colSexoDoLeitor});
             this.dadosGrid.Location = new System.Drawing.Point(12, 287);
             this.dadosGrid.Name = "dadosGrid";
             this.dadosGrid.ReadOnly = true;
             this.dadosGrid.RowHeadersWidth = 51;
             this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dadosGrid.Size = new System.Drawing.Size(980, 257);
-            this.dadosGrid.TabIndex = 34;
+            this.dadosGrid.TabIndex = 17;
+            this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
             // 
-            // colcodigoAutor
+            // colCodigoLeitor
             // 
-            this.colcodigoAutor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colcodigoAutor.FillWeight = 152.2843F;
-            this.colcodigoAutor.HeaderText = "Codigo";
-            this.colcodigoAutor.MinimumWidth = 6;
-            this.colcodigoAutor.Name = "colcodigoAutor";
-            this.colcodigoAutor.ReadOnly = true;
-            this.colcodigoAutor.Width = 80;
+            this.colCodigoLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colCodigoLeitor.FillWeight = 152.2843F;
+            this.colCodigoLeitor.HeaderText = "Codigo";
+            this.colCodigoLeitor.MinimumWidth = 6;
+            this.colCodigoLeitor.Name = "colCodigoLeitor";
+            this.colCodigoLeitor.ReadOnly = true;
+            this.colCodigoLeitor.Width = 80;
             // 
-            // colnomeDoAutor
+            // colNomeDoLeitor
             // 
-            this.colnomeDoAutor.FillWeight = 73.85786F;
-            this.colnomeDoAutor.HeaderText = "Nome do Autor";
-            this.colnomeDoAutor.MinimumWidth = 6;
-            this.colnomeDoAutor.Name = "colnomeDoAutor";
-            this.colnomeDoAutor.ReadOnly = true;
+            this.colNomeDoLeitor.FillWeight = 73.85786F;
+            this.colNomeDoLeitor.HeaderText = "Nome";
+            this.colNomeDoLeitor.MinimumWidth = 6;
+            this.colNomeDoLeitor.Name = "colNomeDoLeitor";
+            this.colNomeDoLeitor.ReadOnly = true;
             // 
-            // coldecricaoAutor
+            // colCpf
             // 
-            this.coldecricaoAutor.FillWeight = 73.85786F;
-            this.coldecricaoAutor.HeaderText = "Descrição do Autor";
-            this.coldecricaoAutor.MinimumWidth = 6;
-            this.coldecricaoAutor.Name = "coldecricaoAutor";
-            this.coldecricaoAutor.ReadOnly = true;
+            this.colCpf.HeaderText = "CPF";
+            this.colCpf.MinimumWidth = 6;
+            this.colCpf.Name = "colCpf";
+            this.colCpf.ReadOnly = true;
+            // 
+            // colEmail
+            // 
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.MinimumWidth = 6;
+            this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
+            this.colEmail.Visible = false;
+            // 
+            // colRG
+            // 
+            this.colRG.HeaderText = "RG";
+            this.colRG.MinimumWidth = 6;
+            this.colRG.Name = "colRG";
+            this.colRG.ReadOnly = true;
+            this.colRG.Visible = false;
+            // 
+            // colCelular
+            // 
+            this.colCelular.HeaderText = "Celular";
+            this.colCelular.MinimumWidth = 6;
+            this.colCelular.Name = "colCelular";
+            this.colCelular.ReadOnly = true;
+            this.colCelular.Visible = false;
+            // 
+            // colTelefone
+            // 
+            this.colTelefone.HeaderText = "Telefone";
+            this.colTelefone.MinimumWidth = 6;
+            this.colTelefone.Name = "colTelefone";
+            this.colTelefone.ReadOnly = true;
+            this.colTelefone.Visible = false;
+            // 
+            // colRua
+            // 
+            this.colRua.HeaderText = "Rua";
+            this.colRua.MinimumWidth = 6;
+            this.colRua.Name = "colRua";
+            this.colRua.ReadOnly = true;
+            this.colRua.Visible = false;
+            // 
+            // colCidade
+            // 
+            this.colCidade.HeaderText = "Cidade";
+            this.colCidade.MinimumWidth = 6;
+            this.colCidade.Name = "colCidade";
+            this.colCidade.ReadOnly = true;
+            this.colCidade.Visible = false;
+            // 
+            // colBairro
+            // 
+            this.colBairro.HeaderText = "Bairro";
+            this.colBairro.MinimumWidth = 6;
+            this.colBairro.Name = "colBairro";
+            this.colBairro.ReadOnly = true;
+            this.colBairro.Visible = false;
+            // 
+            // colUf
+            // 
+            this.colUf.HeaderText = "UF";
+            this.colUf.MinimumWidth = 6;
+            this.colUf.Name = "colUf";
+            this.colUf.ReadOnly = true;
+            this.colUf.Visible = false;
+            // 
+            // colNumero
+            // 
+            this.colNumero.HeaderText = "Numero";
+            this.colNumero.MinimumWidth = 6;
+            this.colNumero.Name = "colNumero";
+            this.colNumero.ReadOnly = true;
+            this.colNumero.Visible = false;
+            // 
+            // colCep
+            // 
+            this.colCep.HeaderText = "Cep";
+            this.colCep.MinimumWidth = 6;
+            this.colCep.Name = "colCep";
+            this.colCep.ReadOnly = true;
+            this.colCep.Visible = false;
+            // 
+            // colDataNasc
+            // 
+            this.colDataNasc.HeaderText = "Data de Nascimento";
+            this.colDataNasc.MinimumWidth = 6;
+            this.colDataNasc.Name = "colDataNasc";
+            this.colDataNasc.ReadOnly = true;
+            this.colDataNasc.Visible = false;
+            // 
+            // colSexoDoLeitor
+            // 
+            this.colSexoDoLeitor.FillWeight = 73.85786F;
+            this.colSexoDoLeitor.HeaderText = "Sexo";
+            this.colSexoDoLeitor.MinimumWidth = 6;
+            this.colSexoDoLeitor.Name = "colSexoDoLeitor";
+            this.colSexoDoLeitor.ReadOnly = true;
+            this.colSexoDoLeitor.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(165, 56);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(12, 16);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "*";
             // 
             // Form1
             // 
@@ -657,15 +792,15 @@
         private System.Windows.Forms.MaskedTextBox txtDataNasc;
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.MaskedTextBox txtRg;
-        private System.Windows.Forms.TextBox txEmail;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.MaskedTextBox txtCelular;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox txtsexoLeitor;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label Estado;
-        private System.Windows.Forms.ComboBox txtEstado;
+        private System.Windows.Forms.ComboBox txtUf;
         private System.Windows.Forms.MaskedTextBox txtCep;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.TextBox txtCidade;
@@ -679,9 +814,22 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView dadosGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colcodigoAutor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colnomeDoAutor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coldecricaoAutor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigoLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNomeDoLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCelular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTelefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDataNasc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSexoDoLeitor;
+        private System.Windows.Forms.Label label22;
     }
 }
 
