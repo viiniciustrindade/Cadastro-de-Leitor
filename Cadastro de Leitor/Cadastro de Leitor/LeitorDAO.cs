@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Cadastro_de_Leitor
 {
@@ -62,7 +63,7 @@ namespace Cadastro_de_Leitor
                 try
                 {
                     StringBuilder sql = new StringBuilder();
-                    sql.AppendLine($"UPDATE mvtBibLeitor SET Leitor = @nome, sexo = @sexo, dataNascimento = @data, cpf = @cpf, rg = @rg, email = @email, telefone = @telefone, telefoneCelular = @telefoneCelular, enderecoNome = @enderecoNome, enderecoBairro = @enderecoBairro, enderecoCidade = @enderecoCidade, enderecoCEP = @enderecoCEP, enderecoUF = @enderecoUF, enderecoNumero = @enderecoNumero WHERE codLeitor = @codLeitor");
+                    sql.AppendLine("UPDATE mvtBibLeitor SET Leitor = @nome, sexo = @sexo, dataNascimento = @data, cpf = @cpf, rg = @rg, email = @email, telefone = @telefone, telefoneCelular = @telefoneCelular, enderecoNome = @enderecoNome, enderecoBairro = @enderecoBairro, enderecoCidade = @enderecoCidade, enderecoCEP = @enderecoCEP, enderecoUF = @enderecoUF, enderecoNumero = @enderecoNumero WHERE codLeitor = @codLeitor");
                     command.CommandText = sql.ToString();
                     command.Parameters.AddWithValue("@codLeitor", leitor.codLeitor);
                     command.Parameters.Add(new SqlParameter("@nome", leitor.nomeLeitor));
@@ -91,6 +92,45 @@ namespace Cadastro_de_Leitor
                 }
             }
         }
+        public bool Validacoes(LeitorModel leitor)
+        {
+            if (string.IsNullOrEmpty(leitor.nomeLeitor) || string.IsNullOrWhiteSpace(leitor.nomeLeitor))
+            {
+                MessageBox.Show("Informe o campo [Nome]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if (string.IsNullOrEmpty(leitor.dataNasc) || string.IsNullOrWhiteSpace(leitor.dataNasc))
+            {
+                MessageBox.Show("Informe o campo [Data de Nascimento]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if (string.IsNullOrEmpty(leitor.sexoLeitor) || string.IsNullOrWhiteSpace(leitor.sexoLeitor))
+            {
+                MessageBox.Show("Informe o campo [Sexo]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if (string.IsNullOrEmpty(leitor.ruaLeitor) || string.IsNullOrWhiteSpace(leitor.ruaLeitor))
+            {
+                MessageBox.Show("Informe o campo [Rua]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if (string.IsNullOrEmpty(leitor.bairroLeitor) || string.IsNullOrWhiteSpace(leitor.bairroLeitor))
+            {
+                MessageBox.Show("Informe o campo [Bairro]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if (string.IsNullOrEmpty(leitor.cidadeLeitor) || string.IsNullOrWhiteSpace(leitor.cidadeLeitor))
+            {
+                MessageBox.Show("Informe o campo [Cidade]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            if (string.IsNullOrEmpty(leitor.ufLeitor) || string.IsNullOrWhiteSpace(leitor.ufLeitor))
+            {
+                MessageBox.Show("Informe o campo [UF]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            return true;
+        }
         public void Excluir(LeitorModel leitor, SqlTransaction t = null)
         {
             using (SqlCommand command = Connection.CreateCommand())
@@ -106,7 +146,7 @@ namespace Cadastro_de_Leitor
                 command.ExecuteNonQuery();
             }
         }
-        public List<LeitorModel> GetEditoras()
+        public List<LeitorModel> GetLeitores()
         {
             List<LeitorModel> leitores = new List<LeitorModel>();
             using (SqlCommand command = Connection.CreateCommand())

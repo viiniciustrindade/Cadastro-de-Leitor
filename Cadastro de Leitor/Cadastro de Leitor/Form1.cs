@@ -34,7 +34,7 @@ namespace Cadastro_de_Leitor
             using (SqlConnection connection = DaoConnection.GetConexao())
             {
                 LeitorDAO dao = new LeitorDAO(connection);
-                List<LeitorModel> leitores = dao.GetEditoras();
+                List<LeitorModel> leitores = dao.GetLeitores();
                 foreach (LeitorModel leitor in leitores)
                 {
                     DataGridViewRow row = dadosGrid.Rows[dadosGrid.Rows.Add()];
@@ -62,44 +62,6 @@ namespace Cadastro_de_Leitor
             LoadId();
             btnExcluir.Enabled = false;
         }
-       /* private void ValidacaoDeCampos() 
-        {
-            if (string.IsNullOrEmpty(txtNomeLeitor.Text) || string.IsNullOrWhiteSpace(txtNomeLeitor.Text))
-            {
-                MessageBox.Show("Informe o campo [Nome]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtDataNasc.Text) || string.IsNullOrWhiteSpace(txtDataNasc.Text))
-            {
-                MessageBox.Show("Informe o campo [Data de Nascimento]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtsexoLeitor.Text) || string.IsNullOrWhiteSpace(txtsexoLeitor.Text))
-            {
-                MessageBox.Show("Informe o campo [Sexo]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtRua.Text) || string.IsNullOrWhiteSpace(txtRua.Text))
-            {
-                MessageBox.Show("Informe o campo [Rua]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtBairro.Text) || string.IsNullOrWhiteSpace(txtBairro.Text))
-            {
-                MessageBox.Show("Informe o campo [Bairro]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtCidade.Text) || string.IsNullOrWhiteSpace(txtCidade.Text))
-            {
-                MessageBox.Show("Informe o campo [Cidade]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtUf.Text) || string.IsNullOrWhiteSpace(txtUf.Text))
-            {
-                MessageBox.Show("Informe o campo [UF]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-        }*/
         private void ApagarCampos()
         {
             txtNomeLeitor.Text = "";
@@ -120,104 +82,88 @@ namespace Cadastro_de_Leitor
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNomeLeitor.Text) || string.IsNullOrWhiteSpace(txtNomeLeitor.Text))
-            {
-                MessageBox.Show("Informe o campo [Nome]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtDataNasc.Text) || string.IsNullOrWhiteSpace(txtDataNasc.Text))
-            {
-                MessageBox.Show("Informe o campo [Data de Nascimento]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtsexoLeitor.Text) || string.IsNullOrWhiteSpace(txtsexoLeitor.Text))
-            {
-                MessageBox.Show("Informe o campo [Sexo]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtRua.Text) || string.IsNullOrWhiteSpace(txtRua.Text))
-            {
-                MessageBox.Show("Informe o campo [Rua]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtBairro.Text) || string.IsNullOrWhiteSpace(txtBairro.Text))
-            {
-                MessageBox.Show("Informe o campo [Bairro]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtCidade.Text) || string.IsNullOrWhiteSpace(txtCidade.Text))
-            {
-                MessageBox.Show("Informe o campo [Cidade]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtUf.Text) || string.IsNullOrWhiteSpace(txtUf.Text))
-            {
-                MessageBox.Show("Informe o campo [UF]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+
             try
             {
                 using (SqlConnection connection = DaoConnection.GetConexao())
                 {
                     LeitorDAO dao = new LeitorDAO(connection);
 
-                    string sql2 = "SELECT COUNT(codLeitor) FROM mvtBibLeitor WHERE codLeitor = @codLeitor";
-                    SqlCommand cmdSelect = new SqlCommand(sql2, connection);
-                    cmdSelect.Parameters.AddWithValue("@codLeitor", txtCodLeitor.Text);
-                    int count = Convert.ToInt32(cmdSelect.ExecuteScalar());
-
-
-
-                    if (count > 0)
+                    bool val = dao.Validacoes(new LeitorModel()
                     {
-                        dao.Alterar(new LeitorModel()
-                        {                         
-                            codLeitor = txtCodLeitor.Text,
-                            nomeLeitor = txtNomeLeitor.Text,
-                            cpfLeitor = txtCpf.Text,
-                            emailLeitor = txtEmail.Text,
-                            rgLeitor = txtRg.Text,
-                            celularLeitor = txtCelular.Text,
-                            telefoneLeitor = txtTelefone.Text,
-                            dataNasc = txtDataNasc.Text,
-                            sexoLeitor = txtsexoLeitor.Text,
-                            ruaLeitor = txtRua.Text,
-                            bairroLeitor = txtBairro.Text,
-                            cidadeLeitor = txtCidade.Text,
-                            ufLeitor = txtUf.Text,
-                            numeroResidencial = txtNumero.Text,
-                            cepResidencial = txtCep.Text,
-                        });
-                    }
-                    else
+                        nomeLeitor = txtNomeLeitor.Text,
+                        dataNasc = txtDataNasc.Text,
+                        sexoLeitor = txtsexoLeitor.Text,
+                        ruaLeitor = txtRua.Text,
+                        bairroLeitor = txtBairro.Text,
+                        cidadeLeitor = txtCidade.Text,
+                        ufLeitor = txtUf.Text,
+
+
+                    });
+                    if (val)
                     {
-                        dao.Salvar(new LeitorModel()
+
+
+                        string sql2 = "SELECT COUNT(codLeitor) FROM mvtBibLeitor WHERE codLeitor = @codLeitor";
+                        SqlCommand cmdSelect = new SqlCommand(sql2, connection);
+                        cmdSelect.Parameters.AddWithValue("@codLeitor", txtCodLeitor.Text);
+                        int count = Convert.ToInt32(cmdSelect.ExecuteScalar());
+
+
+
+                        if (count > 0)
                         {
-                            nomeLeitor = txtNomeLeitor.Text,
-                            cpfLeitor = txtCpf.Text,
-                            emailLeitor = txtEmail.Text,
-                            rgLeitor = txtRg.Text,
-                            celularLeitor = txtCelular.Text,
-                            telefoneLeitor = txtTelefone.Text,
-                            dataNasc = txtDataNasc.Text,
-                            sexoLeitor = txtsexoLeitor.Text,
-                            ruaLeitor = txtRua.Text,
-                            bairroLeitor = txtBairro.Text,
-                            cidadeLeitor = txtCidade.Text,
-                            ufLeitor = txtUf.Text,
-                            numeroResidencial = txtNumero.Text,
-                            cepResidencial = txtCep.Text,
-                        });
+                            dao.Alterar(new LeitorModel()
+                            {   
+                                codLeitor = txtCodLeitor.Text,
+                                nomeLeitor = txtNomeLeitor.Text,
+                                cpfLeitor = txtCpf.Text.Replace(".", "").Replace("-", ""),
+                                emailLeitor = txtEmail.Text,
+                                rgLeitor = txtRg.Text.Replace(".", "").Replace("-", ""),
+                                celularLeitor = txtCelular.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
+                                telefoneLeitor = txtTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
+                                dataNasc = txtDataNasc.Text,
+                                sexoLeitor = txtsexoLeitor.Text,
+                                ruaLeitor = txtRua.Text,
+                                bairroLeitor = txtBairro.Text,
+                                cidadeLeitor = txtCidade.Text,
+                                ufLeitor = txtUf.Text,
+                                numeroResidencial = txtNumero.Text,
+                                cepResidencial = txtCep.Text.Replace(".", "").Replace("-", ""),
+                            }); MessageBox.Show("Leitor atualizado com sucesso!");
+                        }
+                        else
+                        {
+                            dao.Salvar(new LeitorModel()
+                            {
+                                nomeLeitor = txtNomeLeitor.Text,
+                                cpfLeitor = txtCpf.Text.Replace(".","").Replace("-",""),
+                                emailLeitor = txtEmail.Text,
+                                rgLeitor = txtRg.Text.Replace(".", "").Replace("-", ""),
+                                celularLeitor = txtCelular.Text.Replace("(","").Replace(")","").Replace("-", ""),
+                                telefoneLeitor = txtTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
+                                dataNasc = txtDataNasc.Text,
+                                sexoLeitor = txtsexoLeitor.Text,
+                                ruaLeitor = txtRua.Text,
+                                bairroLeitor = txtBairro.Text,
+                                cidadeLeitor = txtCidade.Text,
+                                ufLeitor = txtUf.Text,
+                                numeroResidencial = txtNumero.Text,
+                                cepResidencial = txtCep.Text.Replace(".", "").Replace("-", ""),
+                            });
+                            MessageBox.Show("Leitor salvo com sucesso!");
+                        }
                     }
 
 
-                    MessageBox.Show("Leitor salvo com sucesso!");
+                    
                     // se salvar deu certo carrega os usuários
                     CarregarUsuariosGrid();
                     LoadId();
                     ApagarCampos();
                     btnExcluir.Enabled = false;
-                    
+
                 }
             }
             catch (Exception ex)
@@ -247,116 +193,150 @@ namespace Cadastro_de_Leitor
                 txtNumero.Text = dadosGrid.Rows[e.RowIndex].Cells[colNumero.Index].Value + "";
                 txtCep.Text = dadosGrid.Rows[e.RowIndex].Cells[colCep.Index].Value + "";
 
-                if (string.IsNullOrEmpty(txtNomeLeitor.Text) || string.IsNullOrWhiteSpace(txtNomeLeitor.Text))
+                using (SqlConnection connection = DaoConnection.GetConexao())
                 {
-                    MessageBox.Show("Informe o campo [Nome]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtDataNasc.Text) || string.IsNullOrWhiteSpace(txtDataNasc.Text))
-                {
-                    MessageBox.Show("Informe o campo [Data de Nascimento]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtsexoLeitor.Text) || string.IsNullOrWhiteSpace(txtsexoLeitor.Text))
-                {
-                    MessageBox.Show("Informe o campo [Sexo]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtRua.Text) || string.IsNullOrWhiteSpace(txtRua.Text))
-                {
-                    MessageBox.Show("Informe o campo [Rua]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtBairro.Text) || string.IsNullOrWhiteSpace(txtBairro.Text))
-                {
-                    MessageBox.Show("Informe o campo [Bairro]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtCidade.Text) || string.IsNullOrWhiteSpace(txtCidade.Text))
-                {
-                    MessageBox.Show("Informe o campo [Cidade]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtUf.Text) || string.IsNullOrWhiteSpace(txtUf.Text))
-                {
-                    MessageBox.Show("Informe o campo [UF]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
+                    LeitorDAO dao = new LeitorDAO(connection);
 
-                btnExcluir.Enabled = true;
-
-            }
-
-        }
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtNomeLeitor.Text) || string.IsNullOrWhiteSpace(txtNomeLeitor.Text))
-            {
-                MessageBox.Show("Informe o campo [Nome]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtDataNasc.Text) || string.IsNullOrWhiteSpace(txtDataNasc.Text))
-            {
-                MessageBox.Show("Informe o campo [Data de Nascimento]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtsexoLeitor.Text) || string.IsNullOrWhiteSpace(txtsexoLeitor.Text))
-            {
-                MessageBox.Show("Informe o campo [Sexo]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtRua.Text) || string.IsNullOrWhiteSpace(txtRua.Text))
-            {
-                MessageBox.Show("Informe o campo [Rua]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtBairro.Text) || string.IsNullOrWhiteSpace(txtBairro.Text))
-            {
-                MessageBox.Show("Informe o campo [Bairro]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtCidade.Text) || string.IsNullOrWhiteSpace(txtCidade.Text))
-            {
-                MessageBox.Show("Informe o campo [Cidade]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtUf.Text) || string.IsNullOrWhiteSpace(txtUf.Text))
-            {
-                MessageBox.Show("Informe o campo [UF]", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            DialogResult confirmacao = MessageBox.Show("Deseja excluir o leitor?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            try
-            {
-                if (confirmacao == DialogResult.Yes)
-                {
-                    using (SqlConnection connection = DaoConnection.GetConexao())
+                    bool val = dao.Validacoes(new LeitorModel()
                     {
-                        LeitorDAO dao = new LeitorDAO(connection);
-                        dao.Excluir(new LeitorModel()
-                        {
-                            codLeitor = txtCodLeitor.Text
-                        });
+                        nomeLeitor = txtNomeLeitor.Text,
+                        dataNasc = txtDataNasc.Text,
+                        sexoLeitor = txtsexoLeitor.Text,
+                        ruaLeitor = txtRua.Text,
+                        bairroLeitor = txtBairro.Text,
+                        cidadeLeitor = txtCidade.Text,
+                        ufLeitor = txtUf.Text,
+
+
+                    });
+                    if (val)
+                    {
+                        btnExcluir.Enabled = true;
                     }
-                    MessageBox.Show("Leitor excluída com sucesso!");
-                    CarregarUsuariosGrid();
-                    LoadId();
-                    btnExcluir.Enabled = true;
-                    ApagarCampos();
+
+
+
+
+
                 }
+            }
 
             }
-            catch (Exception ex)
+            private void btnExcluir_Click(object sender, EventArgs e)
             {
-                MessageBox.Show($"Houve um problema ao excluir o leitor!\n{ex.Message}");
+                DialogResult confirmacao = MessageBox.Show("Deseja excluir o leitor?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                try
+                {
+                    if (confirmacao == DialogResult.Yes)
+                    {
+                        using (SqlConnection connection = DaoConnection.GetConexao())
+                        {
+                            LeitorDAO dao = new LeitorDAO(connection);
+
+                            bool val = dao.Validacoes(new LeitorModel()
+                            {
+                                nomeLeitor = txtNomeLeitor.Text,
+                                dataNasc = txtDataNasc.Text,
+                                sexoLeitor = txtsexoLeitor.Text,
+                                ruaLeitor = txtRua.Text,
+                                bairroLeitor = txtBairro.Text,
+                                cidadeLeitor = txtCidade.Text,
+                                ufLeitor = txtUf.Text,
+
+
+                            });
+                            if (val)
+                            {
+                                dao.Excluir(new LeitorModel()
+                                {
+                                    codLeitor = txtCodLeitor.Text
+                                });
+                            }
+                        }
+                        MessageBox.Show("Leitor excluída com sucesso!");
+                        CarregarUsuariosGrid();
+                        LoadId();
+                        btnExcluir.Enabled = true;
+                        ApagarCampos();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Houve um problema ao excluir o leitor!\n{ex.Message}");
+                }
             }
-        }
 
-        private void txtDataNasc_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void label20_MouseHover(object sender, EventArgs e)
         {
-
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
         }
-    }
-}
+
+        private void label19_MouseHover(object sender, EventArgs e)
+        {
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
+        }
+
+        private void label21_MouseHover(object sender, EventArgs e)
+        {
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
+        }
+
+        private void label9_MouseHover(object sender, EventArgs e)
+        {
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
+        }
+
+        private void label17_MouseHover(object sender, EventArgs e)
+        {
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
+        }
+
+        private void label15_MouseHover(object sender, EventArgs e)
+        {
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
+        }
+
+        private void label16_MouseHover(object sender, EventArgs e)
+        {
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
+        }
+
+        private void label22_MouseHover(object sender, EventArgs e)
+        {
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
+        }
+        private void InfoAsterisco(object sender, EventArgs e) 
+        {
+            Label label = (Label)sender;
+            string mensagem = "Este Campo é obrigatório!";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(label, mensagem);
+        } 
+    }   
+}  
 

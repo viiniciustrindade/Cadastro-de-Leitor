@@ -57,6 +57,7 @@
             this.txtCelular = new System.Windows.Forms.MaskedTextBox();
             this.txtsexoLeitor = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.colCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSexoDoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
@@ -242,22 +242,26 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
+            this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label16.ForeColor = System.Drawing.Color.Red;
             this.label16.Location = new System.Drawing.Point(962, 30);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(12, 16);
             this.label16.TabIndex = 17;
             this.label16.Text = "*";
+            this.label16.MouseHover += new System.EventHandler(this.label16_MouseHover);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label17.ForeColor = System.Drawing.Color.Red;
             this.label17.Location = new System.Drawing.Point(963, 86);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(12, 16);
             this.label17.TabIndex = 19;
             this.label17.Text = "*";
+            this.label17.MouseHover += new System.EventHandler(this.label17_MouseHover);
             // 
             // contextMenuStrip1
             // 
@@ -274,7 +278,6 @@
             this.txtDataNasc.Size = new System.Drawing.Size(121, 22);
             this.txtDataNasc.TabIndex = 7;
             this.txtDataNasc.ValidatingType = typeof(System.DateTime);
-            this.txtDataNasc.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDataNasc_MaskInputRejected);
             // 
             // txtCpf
             // 
@@ -376,15 +379,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados pessoais";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(165, 56);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(12, 16);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "*";
+            this.label22.MouseHover += new System.EventHandler(this.label22_MouseHover);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label15.ForeColor = System.Drawing.Color.Red;
             this.label15.Location = new System.Drawing.Point(797, 83);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(12, 16);
             this.label15.TabIndex = 29;
             this.label15.Text = "*";
+            this.label15.MouseHover += new System.EventHandler(this.label15_MouseHover);
             // 
             // groupBox2
             // 
@@ -417,44 +434,52 @@
             // 
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label21.AutoSize = true;
+            this.label21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label21.ForeColor = System.Drawing.Color.Red;
             this.label21.Location = new System.Drawing.Point(517, 53);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(12, 16);
             this.label21.TabIndex = 38;
             this.label21.Text = "*";
+            this.label21.MouseHover += new System.EventHandler(this.label21_MouseHover);
             // 
             // label20
             // 
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
+            this.label20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label20.ForeColor = System.Drawing.Color.Red;
             this.label20.Location = new System.Drawing.Point(964, 24);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(12, 16);
             this.label20.TabIndex = 37;
             this.label20.Text = "*";
+            this.label20.MouseHover += new System.EventHandler(this.label20_MouseHover);
             // 
             // label19
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label19.AutoSize = true;
+            this.label19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label19.ForeColor = System.Drawing.Color.Red;
             this.label19.Location = new System.Drawing.Point(678, 54);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(12, 16);
             this.label19.TabIndex = 36;
             this.label19.Text = "*";
+            this.label19.MouseHover += new System.EventHandler(this.label19_MouseHover);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label9.ForeColor = System.Drawing.Color.Red;
             this.label9.Location = new System.Drawing.Point(517, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(12, 16);
             this.label9.TabIndex = 29;
             this.label9.Text = "*";
+            this.label9.MouseHover += new System.EventHandler(this.label9_MouseHover);
             // 
             // Estado
             // 
@@ -734,16 +759,6 @@
             this.colSexoDoLeitor.Name = "colSexoDoLeitor";
             this.colSexoDoLeitor.ReadOnly = true;
             this.colSexoDoLeitor.Visible = false;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(165, 56);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(12, 16);
-            this.label22.TabIndex = 30;
-            this.label22.Text = "*";
             // 
             // Form1
             // 
