@@ -40,7 +40,7 @@ namespace Cadastro_de_Leitor
                     DataGridViewRow row = dadosGrid.Rows[dadosGrid.Rows.Add()];
                     row.Cells[colCodigoLeitor.Index].Value = leitor.codLeitor;
                     row.Cells[colNomeDoLeitor.Index].Value = leitor.nomeLeitor;
-                    row.Cells[colCpf.Index].Value = leitor.cpfLeitor;
+                    row.Cells[colCpf.Index].Value = leitor.cpfLeitor.Insert(9, "-").Insert(6, ".").Insert(3, ".");
                     row.Cells[colEmail.Index].Value = leitor.emailLeitor;
                     row.Cells[colRG.Index].Value = leitor.rgLeitor;
                     row.Cells[colCelular.Index].Value = leitor.celularLeitor;
@@ -92,7 +92,7 @@ namespace Cadastro_de_Leitor
                     bool val = dao.Validacoes(new LeitorModel()
                     {
                         nomeLeitor = txtNomeLeitor.Text,
-                        dataNasc = txtDataNasc.Text,
+                        dataNasc = txtDataNasc.Value.Date.ToString(),
                         sexoLeitor = txtsexoLeitor.Text,
                         ruaLeitor = txtRua.Text,
                         bairroLeitor = txtBairro.Text,
@@ -123,7 +123,7 @@ namespace Cadastro_de_Leitor
                                 rgLeitor = txtRg.Text.Replace(".", "").Replace("-", ""),
                                 celularLeitor = txtCelular.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
                                 telefoneLeitor = txtTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
-                                dataNasc = txtDataNasc.Text,
+                                dataNasc = txtDataNasc.Value.Date.ToString(),
                                 sexoLeitor = txtsexoLeitor.Text,
                                 ruaLeitor = txtRua.Text,
                                 bairroLeitor = txtBairro.Text,
@@ -143,7 +143,7 @@ namespace Cadastro_de_Leitor
                                 rgLeitor = txtRg.Text.Replace(".", "").Replace("-", ""),
                                 celularLeitor = txtCelular.Text.Replace("(","").Replace(")","").Replace("-", ""),
                                 telefoneLeitor = txtTelefone.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
-                                dataNasc = txtDataNasc.Text,
+                                dataNasc = txtDataNasc.Value.Date.ToString(),
                                 sexoLeitor = txtsexoLeitor.Text,
                                 ruaLeitor = txtRua.Text,
                                 bairroLeitor = txtBairro.Text,
